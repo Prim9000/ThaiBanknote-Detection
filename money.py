@@ -1,5 +1,5 @@
 import torch
-from gtts import gTTS
+#from gtts import gTTS
 from io import BytesIO
 import cv2
 import os
@@ -26,7 +26,7 @@ while(True):
 
     # Inference
     results = model(frame)
-
+    results.show()
     df = results.pandas().xyxy[0]
 
     # Speak the labels
@@ -45,11 +45,12 @@ while(True):
         os.system('mpg123 thousand.mp3')
       else :
         text += label + " "
-
+    '''
     if text.isspace():
         continue
     else:
         myOutput = gTTS(text=text, lang='en')
         myOutput.save('talk.mp3')
         os.system('mpg123 talk.mp3')
+    '''
 cv2.destroyAllWindows()
