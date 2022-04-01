@@ -28,7 +28,7 @@ while(True):
         break
     if framecount%20 == 0:
         # Inference
-        results = model(frame)
+        #results = model(frame)
         results = model(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), size=400)
         #results.show()
         df = results.pandas().xyxy[0]
