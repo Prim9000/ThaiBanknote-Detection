@@ -22,7 +22,7 @@ while(True):
         break
 
     # Model
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='bill-best.pt')  # local model
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='final-best.pt')  # local model
 
     # Inference
     results = model(frame)
