@@ -28,7 +28,7 @@ while(True):
     results = model(frame)
     results.show()
     df = results.pandas().xyxy[0]
-
+    df = df[df['confidence'] > 0.5].dropna()
     # Speak the labels
     text = ""
 
