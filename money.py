@@ -17,7 +17,7 @@ while(True):
     ret, frame = vid.read()
   
     # Display the resulting frame
-    cv2.imshow('frame', frame)
+    #cv2.imshow('frame', frame)
     
     framecount+=1
     
@@ -28,9 +28,9 @@ while(True):
         break
     if framecount%20 == 0:
         # Inference
-        #results = model(frame)
+        results = model(frame)
         results = model(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), size=400)
-        results.show()
+        #results.show()
         df = results.pandas().xyxy[0]
         df = df[df['confidence'] > 0.5].dropna()
         # Speak the labels
